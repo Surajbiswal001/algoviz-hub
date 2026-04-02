@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Time Complexity</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <h1>Understanding Time Complexity</h1>
+    <h2>Big O Notation</h2>
+    <p>Big O notation is used to describe the performance or complexity of an algorithm. Specifically, it expresses the worst-case scenario and helps to understand the algorithm's efficiency as the input data grows.</p>
+
+    <h2>Complexity Comparison Chart</h2>
+    <canvas id="complexityChart" width="400" height="200"></canvas>
+    <script>
+        var ctx = document.getElementById('complexityChart').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['O(1)', 'O(log n)', 'O(n)', 'O(n log n)', 'O(n^2)', 'O(2^n)', 'O(n!)'],
+                datasets: [{
+                    label: 'Growth Rate',
+                    data: [1, 2, 3, 4, 5, 6, 7],
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+
+    <h2>Sorting Algorithm Complexity</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Algorithm</th>
+                <th>Time Complexity</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Bubble Sort</td>
+                <td>O(n^2)</td>
+            </tr>
+            <tr>
+                <td>Quick Sort</td>
+                <td>O(n log n)</td>
+            </tr>
+            <tr>
+                <td>Merge Sort</td>
+                <td>O(n log n)</td>
+            </tr>
+            <tr>
+                <td>Insertion Sort</td>
+                <td>O(n^2)</td>
+            </tr>
+            <tr>
+                <td>Selection Sort</td>
+                <td>O(n^2)</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>Interactive Complexity Calculator</h2>
+    <p><input type="text" id="inputValue" placeholder="Enter a value..." /></p>
+    <button onclick="calculateComplexity()">Calculate Complexity</button>
+    <p id="result"></p>
+    <script>
+        function calculateComplexity() {
+            var value = document.getElementById('inputValue').value;
+            // Simple example of complexity output based on input
+            var result = 'The time complexity for the input of size ' + value + ' is likely O(n).';
+            document.getElementById('result').innerText = result;
+        }
+    </script>
+
+    <h2>Learning Tips</h2>
+    <ul>
+        <li>Start with the basics of time complexity and gradually move to more complex algorithms.</li>
+        <li>Practice analyzing algorithms and their complexities with real-world examples.</li>
+        <li>Utilize visualization tools to understand algorithm behaviors.</li>
+    </ul>
+</body>
+</html>
